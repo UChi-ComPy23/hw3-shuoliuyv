@@ -61,6 +61,7 @@ class EulerDenseOutput(DenseOutput):
 
     def _call_impl(self, t):
         """estimating the solution between y_old and y_new with linear slope
+		y(t)=y_old+alpha(y_new−y_old)
         """
         alpha = (t - self.t_old) / (self.t - self.t_old) #estimate the slope
         return self.y_old + alpha * (self.y_new - self.y_old)
